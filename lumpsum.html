@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="MFCalculator">
+<head>
+	<meta charset="utf-8">
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="shortcut icon" type="image/jpg" href="favicon.jpg"/>
+	<title>Mutual Fund Calculator</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<h1>Mutual Fund Calculator by Ragul adhithya M</h1>
+	<div id="container">
+		<div id="containermain" ng-controller="MFCalculatorController">
+
+
+
+			<div class="heading" id="one">Nature Of Investment :</div>
+			<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" onchange="myFunction2()" id="b1" class="button" ng-model="nature">
+				<option value="">One Time Investment (Lump Sum)</option>
+				<option value='index.html'>Systematic Investment Plan (SIP)</option>
+			</select>
+
+
+
+
+			<div class="heading" id="two">Amount Of Investment :</div>
+			<div >
+				<input class="input1" id="b2" placeholder="Amount ( in ₹ )" ng-model="principal" ng-keyup="xx()" type="number" pattern="[0-9]*" inputmode="numeric" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" onkeypress="myFunction(event)">
+			</div>
+
+
+
+
+			<div class="heading" id="lee" id="four">Expected Rate Of Return P.A :</div>
+			<div >
+				<input class="input1" id="laa" id="b4" placeholder="Percent ( % )" ng-model="rate" ng-keyup="xx()"  type="number" pattern="[0-9]*" inputmode="numeric" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" onkeypress="myFunction(event)">
+			</div>
+
+			
+			<div class="heading" id="ree" id="five">Duration Of Investment :</div>
+			<div >
+				<input class="input1" id="raa" id="b5" placeholder="Years" ng-model="time" ng-keyup="xx()"  type="number" pattern="[0-9]*" inputmode="numeric" min="0" oninput="this.value = 
+ !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" onkeypress="myFunction(event)">
+			</div>
+
+			<div class="result" id="f1">
+				Investment Amount At Maturity : {{aoi | currency:"₹"}}
+			</div>
+
+			<div class="result" id="f3">
+				Invested Amount : {{aoiii | currency:"₹"}}
+			</div>
+
+			<div class="result" id="f2">
+				Interest Amount : {{aoii | currency:"₹"}}
+			</div>
+
+
+
+			<button onClick="window.location.reload();" id="reload">Refresh Page</button>
+
+			<script type="text/javascript">
+				function myFunction(event) {
+if (event.keyCode === 45) {
+	alert("This value can't be negative !")
+}
+}
+			</script>
+		</div>
+	</div>
+</body>
+</html>
